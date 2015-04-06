@@ -148,10 +148,10 @@ class IMAPAdapter(NoSQLAdapter):
             'text': str,
             'date': datetime.date,
             'datetime': datetime.datetime,
-            'id': long,
+            'id': int,
             'boolean': bool,
             'integer': int,
-            'bigint': long,
+            'bigint': int,
             'blob': str,
             'list:string': str
         }
@@ -345,7 +345,7 @@ class IMAPAdapter(NoSQLAdapter):
                 hms = map(int, date_list[3].split(":"))
                 return datetime.datetime(year, month, day,
                     hms[0], hms[1], hms[2]) + add
-            except (ValueError, AttributeError, IndexError), e:
+            except [(ValueError, AttributeError, IndexError), e]:
                 self.db.logger.error("Could not parse date text: %s. %s" %
                              (date, e))
                 return None

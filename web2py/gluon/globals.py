@@ -357,7 +357,7 @@ class Request(Storage):
                     raise HTTP(405, "method not allowed")
                 try:
                     return rest_action(*_self.args, **getattr(_self, 'vars', {}))
-                except TypeError, e:
+                except [TypeError, e]:
                     exc_type, exc_value, exc_traceback = sys.exc_info()
                     if len(traceback.extract_tb(exc_traceback)) == 1:
                         raise HTTP(400, "invalid arguments")

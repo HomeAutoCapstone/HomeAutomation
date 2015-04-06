@@ -117,7 +117,7 @@ def log_rewrite(string):
     elif params.logging == 'off' or not params.logging:
         pass
     elif params.logging == 'print':
-        print string
+        print(string)
     elif params.logging == 'info':
         logger.info(string)
     elif params.logging == 'warning':
@@ -316,7 +316,7 @@ def load(routes='routes.py', app=None, data=None, rdict=None):
         symbols = dict(app=app)
         try:
             exec (data + '\n') in symbols
-        except SyntaxError, e:
+        except [SyntaxError, e]:
             logger.error(
                 '%s has a syntax error and will not be loaded\n' % path
                 + traceback.format_exc())

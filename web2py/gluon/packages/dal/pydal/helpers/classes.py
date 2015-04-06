@@ -7,7 +7,7 @@ import traceback
 from .._compat import exists, copyreg
 
 
-class Reference(long):
+class Reference(int):
 
     def __allocate(self):
         if not self._record:
@@ -269,7 +269,7 @@ class DatabaseStoredFile:
         try:
             if db.executesql(query):
                 return True
-        except Exception, e:
+        except [Exception, e]:
             if not (db._adapter.isOperationalError(e) or
                     db._adapter.isProgrammingError(e)):
                 raise

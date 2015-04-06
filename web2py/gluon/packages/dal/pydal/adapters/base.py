@@ -271,13 +271,13 @@ class BaseAdapter(ConnectionPool):
                     rfield = rtable._id
                     rfieldname = rfield.name
                     rtablename = referenced
-                except (KeyError, ValueError, AttributeError), e:
+                except [(KeyError, ValueError, AttributeError), e]:
                     self.db.logger.debug('Error: %s' % e)
                     try:
                         rtablename,rfieldname = referenced.split('.')
                         rtable = db[rtablename]
                         rfield = rtable[rfieldname]
-                    except Exception, e:
+                    except [Exception, e]:
                         self.db.logger.debug('Error: %s' %e)
                         raise KeyError('Cannot resolve reference %s in %s definition' % (referenced, table._tablename))
 
@@ -839,7 +839,8 @@ class BaseAdapter(ConnectionPool):
         return ftype in ('integer','boolean','double','bigint') or \
             ftype.startswith('decimal')
 
-    def REPLACE(self, first, (second, third)):
+    def REPLACE(self, first, sec_thi):
+        second, third = sec_thi
         return 'REPLACE(%s,%s,%s)' % (self.expand(first,'string'),
                                       self.expand(second,'string'),
                                       self.expand(third,'string'))

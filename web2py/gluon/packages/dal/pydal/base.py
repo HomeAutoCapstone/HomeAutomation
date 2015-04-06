@@ -865,13 +865,13 @@ class DAL(object):
             uri, db_uid = (self._uri, self._db_uid)
         db_as_dict = dict(tables=[], uri=uri, db_uid=db_uid,
                           **dict([(k, getattr(self, "_" + k, None))
-                          for k in 'pool_size','folder','db_codec',
+                          for k in ['pool_size','folder','db_codec',
                           'check_reserved','migrate','fake_migrate',
                           'migrate_enabled','fake_migrate_all',
                           'decode_credentials','driver_args',
                           'adapter_args', 'attempts',
                           'bigint_id','debug','lazy_tables',
-                          'do_connect']))
+                          'do_connect']]))
         for table in self:
             db_as_dict["tables"].append(table.as_dict(flat=flat,
                                         sanitize=sanitize))

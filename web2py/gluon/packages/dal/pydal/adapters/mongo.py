@@ -23,15 +23,15 @@ class MongoDBAdapter(NoSQLAdapter):
         'password': str,
         'blob': str,
         'upload': str,
-        'integer': long,
-        'bigint': long,
+        'integer': int,
+        'bigint': int,
         'float': float,
         'double': float,
         'date': datetime.date,
         'time': datetime.time,
         'datetime': datetime.datetime,
-        'id': long,
-        'reference': long,
+        'id': int,
+        'reference': int,
         'list:string': list,
         'list:integer': list,
         'list:reference': list,
@@ -110,7 +110,7 @@ class MongoDBAdapter(NoSQLAdapter):
                     arg = "0x%s" % arg
                 try:
                     arg = int(arg, 0)
-                except ValueError, e:
+                except [ValueError, e]:
                     raise ValueError(
                             "invalid objectid argument string: %s" % e)
             else:
@@ -399,7 +399,7 @@ class MongoDBAdapter(NoSQLAdapter):
                     return amount
             else:
                 return amount
-        except Exception, e:
+        except [Exception, e]:
             # TODO Reverse update query to verifiy that the query succeded
             raise RuntimeError("uncaught exception when updating rows: %s" % e)
 
