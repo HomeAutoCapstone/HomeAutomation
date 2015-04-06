@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
@@ -24,4 +25,11 @@
   <component name="RunManager">
     <list size="0" />
   </component>
+=======
+<<<<<<< Updated upstream
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.9 (C:\Python27\python.exe)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.6 (/usr/bin/python)" project-jdk-type="Python SDK" />
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 </project>
