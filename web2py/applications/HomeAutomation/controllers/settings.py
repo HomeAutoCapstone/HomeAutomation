@@ -1,3 +1,4 @@
+__author__ = 'DragonJujo'
 # -*- coding: utf-8 -*-
 # this file is released under public domain and you can use without limitations
 
@@ -8,7 +9,7 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
-def index():
+def thermostat():
     """
     example action using the internationalization operator T and flash
     rendered by views/default/index.html or views/generic.html
@@ -56,4 +57,30 @@ def call():
     """
     return service()
 
+def form():
+    """ a simple entry form with various types of objects """
 
+    form = FORM(TABLE(
+        TR('Time:', INPUT(_type='time', _name='timestart',
+           requires=IS_TIME('Enter time in the format HH:MM AM'))),
+        TR('Day', SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='dayofweek',
+           requires=IS_IN_SET(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']))),
+        TR('Temperature:', INPUT(_type='text', _name='temperature',
+           requires=IS_INT_IN_RANGE(40, 90, 'Enter a temperature between 40 and 90'))),
+        TR('', INPUT(_type='submit', _value='SUBMIT')),
+    ))
+    if form.process().accepted:
+        response.flash = 'form accepted'
+        tempsetting = db((db.temperatures.dayofweek == form.vars.dayofweek) &
+                         (db.temperatures.timestart == form.vars.timestart)).select().first()
+        if tempsetting:
+            tempsetting.update_record(temperature=form.vars.temperature)
+        else:
+            db.temperatures.insert(dayofweek=form.vars.dayofweek,
+                                   timestart=form.vars.timestart,
+                                   temperature=form.vars.temperature)
+    elif form.errors:
+        response.flash = 'form is invalid'
+    else:
+        response.flash = 'please fill the form'
+    return dict(form=form, vars=form.vars)

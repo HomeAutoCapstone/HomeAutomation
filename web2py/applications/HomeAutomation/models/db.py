@@ -88,5 +88,15 @@ auth.settings.reset_password_requires_verification = True
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
 
+db.define_table('temperatures',
+                Field('dayofweek', 'string'),
+                Field('timestart', 'time'),
+                Field('temperature', 'integer'))
+
+db.define_table('switches',
+                Field('dayofweek', 'string'),
+                Field('timestart', 'time'),
+                Field('status', 'boolean'))
+
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
