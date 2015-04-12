@@ -99,6 +99,7 @@
 'Enter a temperature between 40 and 90': 'Enter a temperature between 40 and 90',
 'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
+'Enter time in the format HH:MM AM': 'Enter time in the format HH:MM AM',
 'Error logs for "%(app)s"': '"%(app)s"的错误记录',
 'Errors': 'Errors',
 'export as csv file': '以CSV格式导出',

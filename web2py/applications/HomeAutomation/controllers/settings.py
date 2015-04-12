@@ -75,13 +75,13 @@ def form():
     ))
     if form.process().accepted:
         response.flash = 'form accepted'
-        tempsetting = db((db.temperatures.dayofweek == form.vars.dayofweek) &
-                         (db.temperatures.timestart == form.vars.timestart)).select().first()
+        tempsetting = db((db.temperatures.day_of_week == form.vars.dayofweek) &
+                         (db.temperatures.time_start == form.vars.timestart)).select().first()
         if tempsetting:
             tempsetting.update_record(temperature=form.vars.temperature)
         else:
-            db.temperatures.insert(dayofweek=form.vars.dayofweek,
-                                   timestart=form.vars.timestart,
+            db.temperatures.insert(day_of_week=form.vars.dayofweek,
+                                   time_start=form.vars.timestart,
                                    temperature=form.vars.temperature)
         redirect(URL('thermostat'))
     elif form.errors:
