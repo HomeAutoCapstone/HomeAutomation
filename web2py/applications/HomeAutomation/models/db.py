@@ -89,13 +89,13 @@ auth.settings.reset_password_requires_verification = True
 #########################################################################
 
 db.define_table('temperatures',
-                Field('dayofweek', 'string'),
-                Field('timestart', 'time'),
+                Field('day_of_week', 'string'),
+                Field('time_start', 'time'),
                 Field('temperature', 'integer'))
 
 db.define_table('switches',
-                Field('dayofweek', 'string'),
-                Field('timestart', 'time'),
+                Field('day_of_week', 'string'),
+                Field('time_start', 'time'),
                 Field('status', 'boolean'))
 
 ## after defining tables, uncomment below to enable auditing

@@ -76,7 +76,7 @@ class Row(object):
                 key = m.group(2)
         try:
             return ogetattr(self, key)
-        except [(KeyError, AttributeError, TypeError), ae]:
+        except (KeyError, AttributeError, TypeError), ae:
             try:
                 self[key] = ogetattr(self,'__get_lazy_reference__')(key)
                 return self[key]

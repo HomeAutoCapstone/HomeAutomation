@@ -18,8 +18,12 @@ def thermostat():
     return auth.wiki()
     """
     # response.flash = T("Hello")
-    return dict(message=T('Welcome to web2py!'))
+    temps = SQLTABLE(db().select(db.temperatures.ALL), headers='fieldname:capitalize')
+    return dict(message=T('Welcome to web2py!'), temps=temps)
 
+def thermo():
+    temps = SQLTABLE(db().select(db.temperatures.ALL), headers='fieldname:capitalize')
+    return dict(message=T('GODDAMMIT'), temps=temps)
 
 def user():
     """
@@ -79,6 +83,7 @@ def form():
             db.temperatures.insert(dayofweek=form.vars.dayofweek,
                                    timestart=form.vars.timestart,
                                    temperature=form.vars.temperature)
+        redirect(URL('thermostat'))
     elif form.errors:
         response.flash = 'form is invalid'
     else:
