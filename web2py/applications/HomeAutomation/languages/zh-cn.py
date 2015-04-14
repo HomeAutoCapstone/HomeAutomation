@@ -96,6 +96,7 @@
 'Editing file': '编辑文件',
 'Editing file "%s"': '编辑文件"%s"',
 'Email and SMS': 'Email and SMS',
+'Enter a number between %(min)g and %(max)g': 'Enter a number between %(min)g and %(max)g',
 'Enter a temperature between 40 and 90': 'Enter a temperature between 40 and 90',
 'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
