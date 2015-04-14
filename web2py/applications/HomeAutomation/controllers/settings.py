@@ -20,6 +20,9 @@ def thermostat():
     # response.flash = T("Hello")
     return dict()
 
+def light():
+    return dict()
+
 def thermo():
     temps = SQLTABLE(db().select(db.temperatures.ALL), headers='fieldname:capitalize')
     return dict(message=T('GODDAMMIT'), temps=temps)
@@ -101,3 +104,30 @@ def location():
                                   latitude=request.vars.lat,
                                   longitude=request.vars.lng)
     return dict()
+
+def form2():
+    """ a simple entry form with various types of objects """
+    form2 = FORM(TABLE(
+        TR('Time:', INPUT(_type='time', _name='time_start',
+           requires=IS_TIME('Enter time in the format HH:MM AM'))),
+        TR('Day', SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='day_of_week',
+           requires=IS_IN_SET(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']))),
+        TR('On or Off:', SELECT('On','Off', _name='status', requires=IS_IN_SET(['On','Off']))),
+        TR('', INPUT(_type='submit', _value='SUBMIT')),
+    ))
+    if form2.process().accepted:
+        response.flash = 'form accepted'
+        lightsetting = db((db.switches.day_of_week == form2.vars.day_of_week) &
+                         (db.switches.time_start == form2.vars.time_start)).select().first()
+        if lightsetting:
+            lightsetting.update_record(status=form2.vars.status)
+        else:
+            db.switches.insert(day_of_week=form2.vars.day_of_week,
+                                   time_start=form2.vars.time_start,
+                                   status=form2.vars.status)
+        redirect(URL('light'))
+    elif form2.errors:
+        response.flash = 'form is invalid'
+    else:
+        response.flash = 'please fill the form'
+    return dict(form2=form2, vars=form2.vars)

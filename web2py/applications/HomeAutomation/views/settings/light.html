@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','css/default.css')}}">
+</head>
+<body>
+<div class="Table">
+    <div class="Title"><p>Weekly Light Switch Schedule</p></div>
+    <div id="weekly" class="Heading">
+        <div id="Sunday" class="Cell"><p>Sunday</p></div>
+        <div id="Monday" class="Cell"><p>Monday</p></div>
+        <div id="Tuesday" class="Cell"><p>Tuesday</p></div>
+        <div id="Wednesday" class="Cell"><p>Wednesday</p></div>
+        <div id="Thursday" class="Cell"><p>Thursday</p></div>
+        <div id="Friday" class="Cell"><p>Friday</p></div>
+        <div id="Saturday" class="Cell"><p>Saturday</p></div>
+    </div>
+    <div id="schedule" class="Row">
+        <div id="SundayList" class="Cell">
+            <ul id="SundayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="MondayList" class="Cell">
+            <ul id="MondayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Monday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="TuesdayList" class="Cell">
+            <ul id="TuesdayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="WednesdayList" class="Cell">
+            <ul id="WednesdayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="ThursdayList" class="Cell">
+            <ul id="ThursdayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="FridayList" class="Cell">
+            <ul id="FridayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="SaturdayList" class="Cell">
+            <ul id="SaturdayList" class="Temp">
+                <li>
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.status}}
+                        </li>{{pass}}</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<br>
+<a href="form2.html">Add new setting</a>
+
+</body>
+</html>

@@ -71,34 +71,7 @@ auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
-#########################################################################
-## Define your tables below (or better in another model file) for example
-##
-## >>> db.define_table('mytable',Field('myfield','string'))
-##
-## Fields can be 'string','text','password','integer','double','boolean'
-##       'date','time','datetime','blob','upload', 'reference TABLENAME'
-## There is an implicit 'id integer autoincrement' field
-## Consult manual for more options, validators, etc.
-##
-## More API examples for controllers:
-##
-## >>> db.mytable.insert(myfield='value')
-## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
-## >>> for row in rows: print row.id, row.myfield
-#########################################################################
-
-db.define_table('temperatures',
+db.define_table('switches',
                 Field('day_of_week', 'string'),
                 Field('time_start', 'time'),
-                Field('temperature', 'integer'))
-
-
-db.define_table('geolocation',
-                Field('device', 'string'),
-                Field('latitude', 'double'),
-                Field('longitude', 'double'),
-                Field('home', 'boolean'))
-
-## after defining tables, uncomment below to enable auditing
-# auth.enable_record_versioning(db)
+                Field('status', 'boolean'))
