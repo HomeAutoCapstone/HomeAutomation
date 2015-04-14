@@ -21,49 +21,70 @@
         <div id="SundayList" class="Cell">
             <ul id="SundayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Sunday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
         <div id="MondayList" class="Cell">
             <ul id="MondayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Monday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
         <div id="TuesdayList" class="Cell">
             <ul id="TuesdayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Tuesday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
         <div id="WednesdayList" class="Cell">
             <ul id="WednesdayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Wednesday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
         <div id="ThursdayList" class="Cell">
             <ul id="ThursdayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Thursday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
         <div id="FridayList" class="Cell">
             <ul id="FridayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Friday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
         <div id="SaturdayList" class="Cell">
             <ul id="SaturdayList" class="Temp">
                 <li>
-                    <a href=""><p>08:00 AM - 70</p></a>
+                    <a href=""><p>{{for row in db(db.temperatures.day_of_week=='Saturday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>{{pass}}</p></a>
                 </li>
             </ul>
         </div>
