@@ -18,8 +18,7 @@ def thermostat():
     return auth.wiki()
     """
     # response.flash = T("Hello")
-    temps = SQLTABLE(db().select(db.temperatures.ALL), headers='fieldname:capitalize')
-    return dict(message=T('Welcome to web2py!'), temps=temps)
+    return dict()
 
 def thermo():
     temps = SQLTABLE(db().select(db.temperatures.ALL), headers='fieldname:capitalize')
