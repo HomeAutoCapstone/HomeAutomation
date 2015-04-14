@@ -94,5 +94,11 @@ def location():
     sets the location for determining home status
     """
     if 'lat' in request.vars:
-
+        geosetting = db((db.geolocation.device == request.vars.device)).select().first()
+        if geosetting:
+            geosetting.update_record(latitude=request.vars.lat, longitude=request.vars.lng)
+        else:
+            db.geolocation.insert(device=request.vars.device,
+                                  latitude=request.vars.lat,
+                                  longitude=request.vars.lng)
     return dict()

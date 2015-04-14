@@ -101,7 +101,8 @@ db.define_table('switches',
 db.define_table('geolocation',
                 Field('device', 'string'),
                 Field('latitude', 'double'),
-                Field('longitude', 'double'))
+                Field('longitude', 'double'),
+                Field('home', 'boolean'))
 
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
