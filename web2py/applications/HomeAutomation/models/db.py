@@ -89,14 +89,19 @@ auth.settings.reset_password_requires_verification = True
 #########################################################################
 
 db.define_table('temperatures',
-                Field('dayofweek', 'string'),
-                Field('timestart', 'time'),
+                Field('day_of_week', 'string'),
+                Field('time_start', 'time'),
                 Field('temperature', 'integer'))
 
 db.define_table('switches',
-                Field('dayofweek', 'string'),
-                Field('timestart', 'time'),
+                Field('day_of_week', 'string'),
+                Field('time_start', 'time'),
                 Field('status', 'boolean'))
+
+db.define_table('geolocation',
+                Field('device', 'string'),
+                Field('latitude', 'double'),
+                Field('longitude', 'double'))
 
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)

@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+
+<script type="text/javascript">
+    function getLoaction() {
+        navigator.geolocation.getCurrentPosition(postLocation)
+        function postLocation(position)
+        {
+            jQuery.post('{{=URL('location')}}', {lat: +position.coords.latitude, lng: +position.coords.longitude});
+        }
+    }
+</script>
+<script type="text/python">
+
+</script>

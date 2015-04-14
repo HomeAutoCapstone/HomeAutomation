@@ -59,7 +59,6 @@ def call():
 
 def form():
     """ a simple entry form with various types of objects """
-
     form = FORM(TABLE(
         TR('Time:', INPUT(_type='time', _name='timestart',
            requires=IS_TIME('Enter time in the format HH:MM AM'))),
@@ -84,3 +83,11 @@ def form():
     else:
         response.flash = 'please fill the form'
     return dict(form=form, vars=form.vars)
+
+def location():
+    """
+    sets the location for determining home status
+    """
+    if 'lat' in request.vars:
+
+    return dict()
