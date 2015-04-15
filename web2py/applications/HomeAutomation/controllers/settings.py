@@ -103,7 +103,8 @@ def location():
         else:
             db.geolocation.insert(device=request.vars.device,
                                   latitude=request.vars.lat,
-                                  longitude=request.vars.lng)
+                                  longitude=request.vars.lng,
+                                  home=True)
     return dict()
 
 def form2():
