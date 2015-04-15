@@ -56,4 +56,7 @@ def call():
     """
     return service()
 
+def frontpage():
+    return dict(message=T('Welcome to web2py!'))
+
 

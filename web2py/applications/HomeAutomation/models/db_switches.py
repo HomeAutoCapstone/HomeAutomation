@@ -74,4 +74,4 @@ auth.settings.reset_password_requires_verification = True
 db.define_table('switches',
                 Field('day_of_week', 'string'),
                 Field('time_start', 'time'),
-                Field('status', 'boolean'))
+                Field('status', 'string'))

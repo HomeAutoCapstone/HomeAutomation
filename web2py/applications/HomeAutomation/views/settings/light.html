@@ -41,7 +41,7 @@
         <div id="TuesdayList" class="Cell">
             <ul id="TuesdayList" class="Temp">
                 <li>
-                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Tuesday').select(orderby='time_start'):}}
                         <li>{{=row.time_start}} -- {{
                         =row.status}}
                         </li>{{pass}}</p></a>
@@ -51,7 +51,7 @@
         <div id="WednesdayList" class="Cell">
             <ul id="WednesdayList" class="Temp">
                 <li>
-                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Wednesday').select(orderby='time_start'):}}
                         <li>{{=row.time_start}} -- {{
                         =row.status}}
                         </li>{{pass}}</p></a>
@@ -61,7 +61,7 @@
         <div id="ThursdayList" class="Cell">
             <ul id="ThursdayList" class="Temp">
                 <li>
-                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Thursday').select(orderby='time_start'):}}
                         <li>{{=row.time_start}} -- {{
                         =row.status}}
                         </li>{{pass}}</p></a>
@@ -71,7 +71,7 @@
         <div id="FridayList" class="Cell">
             <ul id="FridayList" class="Temp">
                 <li>
-                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Friday').select(orderby='time_start'):}}
                         <li>{{=row.time_start}} -- {{
                         =row.status}}
                         </li>{{pass}}</p></a>
@@ -81,7 +81,7 @@
         <div id="SaturdayList" class="Cell">
             <ul id="SaturdayList" class="Temp">
                 <li>
-                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Sunday').select(orderby='time_start'):}}
+                    <a href=""><p>{{for row in db(db.switches.day_of_week=='Saturday').select(orderby='time_start'):}}
                         <li>{{=row.time_start}} -- {{
                         =row.status}}
                         </li>{{pass}}</p></a>

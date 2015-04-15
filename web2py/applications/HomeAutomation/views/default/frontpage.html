@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<header class="container-fluid background">
+    <div class="jumbotron text-center">
+    {{if response.title:}}
+        <h1>{{=response.title}}
+            <small>{{=response.subtitle or ''}}</small></h1>
+    {{pass}}
+    </div>
+</header>
+{{end}}
+
+<html>
+<body>
+
+<form action="/HomeAutomation/settings/thermostat" method="get">
+    <h2>Temperature Settings: <input type="submit" value="Setting" /></h2>
+</form>
+
+<form action="/HomeAutomation/settings/light" method="get">
+    <h2>Light Switch Setting: <input type="submit" value="Setting" /></h2>
+</form>
+
+<form action="/HomeAutomation/settings/location" method="get">
+    <h2>Set Home Location:  <input type="submit" value="Setting" /></h2>
+</form>
+
+<form action="/HomeAutomation/settings/room" method="get">
+    <h2>Specific Room Settings:  <input type="submit" value="Setting" /></h2>
+</form>

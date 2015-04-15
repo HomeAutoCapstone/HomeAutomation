@@ -23,6 +23,7 @@ def thermostat():
 def light():
     return dict()
 
+
 def thermo():
     temps = SQLTABLE(db().select(db.temperatures.ALL), headers='fieldname:capitalize')
     return dict(message=T('GODDAMMIT'), temps=temps)
@@ -112,7 +113,7 @@ def form2():
            requires=IS_TIME('Enter time in the format HH:MM AM'))),
         TR('Day', SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='day_of_week',
            requires=IS_IN_SET(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']))),
-        TR('On or Off:', SELECT('On','Off', _name='status', requires=IS_IN_SET(['On','Off']))),
+        TR('On or Off:', SELECT('On','Off', _name='status')),
         TR('', INPUT(_type='submit', _value='SUBMIT')),
     ))
     if form2.process().accepted:
@@ -131,3 +132,6 @@ def form2():
     else:
         response.flash = 'please fill the form'
     return dict(form2=form2, vars=form2.vars)
+
+def room():
+    return dict()
