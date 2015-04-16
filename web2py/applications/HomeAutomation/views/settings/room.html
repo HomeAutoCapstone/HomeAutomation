@@ -1,23 +1,40 @@
 {{extend 'layout.html'}}
 <html>
 <h1>Specific Room Setting</h1>
+
 <h2>
-<script language="JavaScript">
-function set() {
-   if (document.form1.ok.value=="On")
-   {
-     document.form1.ok.value="Off";
-   }
-   else
-   {
-     document.form1.ok.value="On";
-   }
-}
-</script>
-<form name="form1" method="post" action="">
-    Room1: Currently
-<input name="ok" type="button" id="ok" value="On" onClick="set();">
-</form>
+    <script language="JavaScript">
+        function set() {
+            var target = event.target;
+            if (target.value == "On") {
+                target.value = "Off";
+            }
+            else {
+                target.value = "On";
+            }
+        }
+
+    </script>
+
+    <form name="form1" method="post" action="">
+        Room1: Currently
+        <input class="btn btn-large btn-primary" name="ok" type="button" id="ok" value="On" onClick="set();">
+    </form>
+
+    <form name="form1" method="post" action="">
+        Room1: Currently
+        <input class="btn btn-large btn-primary" name="ok" type="button" id="ok" value="On" onClick="set();">
+    </form>
+
+    <form name="form1" method="post" action="">
+        Room1: Currently
+        <input class="btn btn-large btn-primary" name="ok" type="button" id="ok" value="On" onClick="set();">
+    </form>
+
+    <form name="form1" method="post" action="">
+        Room1: Currently
+        <input class="btn btn-large btn-primary" name="ok" type="button" id="ok" value="On" onClick="set();">
+    </form>
 
 </h2>
 </html>
