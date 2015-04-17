@@ -115,7 +115,7 @@ def form2():
         TR('Day', SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='day_of_week',
            requires=IS_IN_SET(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']))),
         TR('On or Off:', SELECT('On','Off', _name='status')),
-        TR('', INPUT(_type='submit', _value='SUBMIT')),
+        TR('', INPUT(_type='submit', _value='SUBMIT'))
     ))
     if form2.process().accepted:
         response.flash = 'form accepted'
