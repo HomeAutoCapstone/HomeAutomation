@@ -77,6 +77,17 @@ db.define_table('temperatures',
                 Field('temperature', 'integer'))
 
 
+db.define_table('geolocation',
+                Field('device', 'string'),
+                Field('latitude', 'double'),
+                Field('longitude', 'double'),
+                Field('home', 'boolean'))
+
+db.define_table('switches',
+                Field('day_of_week', 'string'),
+                Field('time_start', 'time'),
+                Field('status', 'string'))
+
 
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
