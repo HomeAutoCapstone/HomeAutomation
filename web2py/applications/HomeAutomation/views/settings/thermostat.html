@@ -1,0 +1,113 @@
+{{extend 'layout.html'}}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','css/default.css')}}">
+</head>
+<body>
+<h1 class="text-center">Weekly Thermostat Schedule</h1>
+
+<div class="table-responsive">
+    <table class="table table-bordered text-center" >
+        <tr>
+            <th class="text-center">Day of week</th>
+            <th class="text-center">Temperature Schedule</th>
+        </tr>
+
+        <tr>
+            <td>Sunday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Sunday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+         <tr>
+            <td>Monday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Monday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+         <tr>
+            <td>Tuesday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Tuesday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+         <tr>
+            <td>Wednesday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Wednesday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+         <tr>
+            <td>Thursday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Thursday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+         <tr>
+            <td>Friday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Friday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+         <tr>
+            <td>Saturday</td>
+            <td>
+                <ul id="SundayList">
+                {{for row in db(db.temperatures.day_of_week=='Saturday').select(orderby='time_start'):}}
+                    <li>
+                        <a href="">{{=row.time_start}} -- {{=row.temperature}}℉</a>
+                    </li>
+                {{pass}}
+                </ul>
+            </td>
+        </tr>
+
+
+
+    </table>
+</div>
+<hr>
+<br>
+<a href="form.html" class="btn btn-large btn-primary text-center">Add new setting</a>
+<a href="/HomeAutomation/default/frontpage.html" class="btn btn-large btn-primary">Main menu</a>
+
+</body>
+</html>
