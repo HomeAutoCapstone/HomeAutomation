@@ -67,16 +67,14 @@ def call():
 def form():
     """ a simple entry form with various types of objects """
     form = FORM(TABLE(
-        TR('Time:', INPUT(_type='time', _name='timestart',
+        TR(H4('Time: '), INPUT(_type='time', _name='timestart',
            requires=IS_TIME('Enter time in the format HH:MM AM')), ''),
-        TR(' '),
-        TR('Day',
+        TR(H4('Day: '),
            SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='dayofweek',
            requires=IS_IN_SET(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])), ''),
         TR(H4('Temperature:'), TD(INPUT(_type='text', _name='temperature',
            requires=IS_INT_IN_RANGE(40, 90, 'Enter a temperature between 40 and 90')), _colspan='2')),
-        TR(A(INPUT(_type='button', _value='CANCEL'),
-                                                         _href='thermostat.html'), INPUT(_type='submit', _value='SUBMIT')),
+        TR(A(INPUT(_type='button', _value='CANCEL'),_href='thermostat.html'), INPUT(_type='submit', _value='SUBMIT')),
     ))
     if form.process().accepted:
         response.flash = 'form accepted'
@@ -113,12 +111,12 @@ def location():
 def form2():
     """ a simple entry form with various types of objects """
     form2 = FORM(TABLE(
-        TR('Time:', INPUT(_type='time', _name='time_start',
+        TR(H4('Time: '), INPUT(_type='time', _name='time_start',
            requires=IS_TIME('Enter time in the format HH:MM AM'))),
-        TR('Day', SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='day_of_week',
+        TR(H4('Day: '), SELECT('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', _name='day_of_week',
            requires=IS_IN_SET(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']))),
-        TR('On or Off:', SELECT('On','Off', _name='status')),
-        TR('', INPUT(_type='submit', _value='SUBMIT'))
+        TR(H4('On or Off: '), SELECT('On','Off', _name='status')),
+        TR(A(INPUT(_type='button', _value='CANCEL'),_href='light.html'), INPUT(_type='submit', _value='SUBMIT'))
     ))
     if form2.process().accepted:
         response.flash = 'form accepted'
