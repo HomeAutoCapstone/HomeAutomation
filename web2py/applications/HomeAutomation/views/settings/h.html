@@ -1,0 +1,84 @@
+{{extend 'layout.html'}}
+<html>
+<head>
+<style type="text/css">
+#customers
+  {
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  width:100%;
+  border-collapse:collapse;
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid #98bf21;
+  padding:3px 7px 2px 7px;
+  }
+
+#customers th
+  {
+  font-size:1.1em;
+  text-align:left;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#A7C942;
+  color:#ffffff;
+  }
+
+#customers tr.alt td
+  {
+  color:#000000;
+  background-color:#EAF2D3;
+  }
+</style>
+</head>
+<body>
+<h1><center>Weekly Thermostat Schedule</center></h1>
+<table id="customers">
+<tr>
+<th>Day</th>
+<th>Temperature</th>
+</tr>
+
+<tr>
+<td>Sunday</td>
+<td><li><a href=""><p>{{for row in db(db.temperatures.day_of_week=='Monday').select(orderby='time_start'):}}
+                        <li>{{=row.time_start}} -- {{
+                        =row.temperature}}℉
+                        </li>
+                        {{pass}}</p></a></li></td>
+</tr>
+
+<tr class="alt">
+<td>Baidu</td>
+<td>Li YanHong</td>
+</tr>
+
+<tr>
+<td>Google</td>
+<td>Larry Page</td>
+</tr>
+
+<tr class="alt">
+<td>Lenovo</td>
+<td>Liu Chuanzhi</td>
+</tr>
+
+<tr>
+<td>Microsoft</td>
+<td>Bill Gates</td>
+</tr>
+
+<tr class="alt">
+<td>Nokia</td>
+<td>Stephen Elop</td>
+</tr>
+
+
+</table>
+
+<a href="form.html" class="btn btn-large btn-primary">Add new setting</a>
+<a href="/HomeAutomation/default/frontpage.html" class="btn btn-large btn-primary">Main menu</a>
+</body>
+</html>
